@@ -1,0 +1,51 @@
+.stores-list {
+  width: 100%;
+}
+
+.stores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.stores-header h2 {
+  margin: 0;
+}
+
+.stores-table {
+  overflow-x: auto;
+}
+
+.stores-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stores-table th,
+.stores-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+}
+
+.stores-table th {
+  background-color: #242424;
+  font-weight: 600;
+}
+
+.stores-table tr:hover {
+  background-color: #242424;
+}
+
+.stores-table a {
+  color: #646cff;
+  text-decoration: none;
+}
+
+.stores-table a:hover {
+  text-decoration: underline;
+}

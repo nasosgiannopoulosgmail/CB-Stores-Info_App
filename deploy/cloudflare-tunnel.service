@@ -1,0 +1,16 @@
+# Systemd service file for Cloudflare Tunnel
+# Place at /etc/systemd/system/cloudflared.service
+
+[Unit]
+Description=Cloudflare Tunnel
+After=network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/cloudflared tunnel --config /etc/cloudflared/config.yml run
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

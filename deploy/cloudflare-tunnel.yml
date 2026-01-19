@@ -1,0 +1,23 @@
+# Cloudflare Tunnel Configuration
+# Place this file at /etc/cloudflared/config.yml on your Hetzner VM
+# Or reference it when running: cloudflared tunnel --config /path/to/cloudflare-tunnel.yml run
+
+tunnel: coffee-berry-tunnel
+credentials-file: /etc/cloudflared/credentials.json
+
+# Ingress rules - routes traffic from Cloudflare to local services
+ingress:
+  # Frontend (React app served by Nginx)
+  - hostname: stores.yourdomain.com  # REPLACE WITH YOUR DOMAIN
+    service: http://localhost:80
+  
+  # Backend API (FastAPI)
+  - hostname: api.stores.yourdomain.com  # REPLACE WITH YOUR DOMAIN
+    service: http://localhost:8000
+  
+  # Catch-all rule (must be last)
+  - service: http_status:404
+
+# Optional: Metrics and logging
+metrics: 0.0.0.0:8080
+loglevel: info
